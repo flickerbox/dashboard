@@ -2,7 +2,7 @@
 define('DOCUMENT_ROOT', dirname(dirname(__FILE__)));
 require(DOCUMENT_ROOT . '/api/_config.php');
 require(DOCUMENT_ROOT . '/api/class.config.php');
-require(DOCUMENT_ROOT . '/api/class.core.php');
+require(DOCUMENT_ROOT . '/api/class.http.php');
 require(DOCUMENT_ROOT . '/api/class.bugs.php');
 
 $request = $_GET['request'];
