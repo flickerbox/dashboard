@@ -1,10 +1,6 @@
 <?php
 class Bugs Extends Core
 {
-	private $mantis_db;
-	private $dashboard_db;
-	private $config;
-	
 	public $the_closer;
 	public $the_opener;
 	public $oldest;
@@ -13,17 +9,19 @@ class Bugs Extends Core
 	public $assigned;
 	public $priority;
 	
-	function __construct()
+	protected $config;
+	protected $mantis_db;
+	protected $dashboard_db;
+
+	public function __construct () 
 	{
-		$this->mantis_db = new PDO();
-		$this->dashboard_db = new PDO();
+		$core = Config::getInstance();
 		
-		$this->config = array(
-			'excluded_projects' => '',
-			'employees' => ""
-		);
+		$this->config       = $core->mantis->config;
+		$this->mantis_db    = $core->mantis->db;
+		$this->dashboard_db = $core->dashboard->db;
 	}
-	
+
 	function the_closer()
 	{
 		$exclude = $this->config['excluded_projects'];
@@ -81,6 +79,7 @@ class Bugs Extends Core
 				  LIMIT 1";
 		
 		$query = $this->mantis_db->prepare($query);
+		
 		$query->execute();
 
 		$result = $query->fetchAll(PDO::FETCH_ASSOC);

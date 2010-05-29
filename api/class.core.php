@@ -1,9 +1,8 @@
 <?php
-
 /**
 * Core
 */
-class Core
+class Core Extends Config
 {
 	public function response()
 	{

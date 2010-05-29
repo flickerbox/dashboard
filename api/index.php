@@ -1,6 +1,9 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/api/class.core.php');
-require($_SERVER['DOCUMENT_ROOT'] . '/api/class.bugs.php');
+define('DOCUMENT_ROOT', dirname(dirname(__FILE__)));
+require(DOCUMENT_ROOT . '/api/_config.php');
+require(DOCUMENT_ROOT . '/api/class.config.php');
+require(DOCUMENT_ROOT . '/api/class.core.php');
+require(DOCUMENT_ROOT . '/api/class.bugs.php');
 
 $request = $_GET['request'];
 $request = explode('/', $request);
