@@ -1,0 +1,437 @@
+/*------------------------------------------------------------------------------
+  RESET
+------------------------------------------------------------------------------*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,code,del,dfn,em,img,q,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,dialog,figure,footer,header,hgroup,nav,section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+article,aside,dialog,figure,footer,header,hgroup,nav,section {
+	display: block;
+}
+body {
+	line-height: 1.5;
+}
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption,th,td {
+	text-align: left;
+	font-weight: normal;
+}
+table,td,th {
+	vertical-align: middle;
+}
+blockquote:before,blockquote:after,q:before,q:after {
+	content: "";
+}
+blockquote,q {
+	quotes: "" "";
+}
+a img {
+	border: none;
+}
+
+/*------------------------------------------------------------------------------
+  GRID
+------------------------------------------------------------------------------*/
+.container {
+	width: 1880px;
+	height: 1020px;
+	padding-top: 20px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.column, .span-1, .span-2, .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11, .span-12, .span-13, .span-14, .span-15, .span-16, .span-17, .span-18, .span-19, .span-20 {float:left;margin-right:20px;}
+.last {margin-right:0;}
+.span-1 {width:75px;}
+.span-2 {width:170px;}
+.span-3 {width:265px;}
+.span-4 {width:360px;}
+.span-5 {width:455px;}
+.span-6 {width:550px;}
+.span-7 {width:645px;}
+.span-8 {width:740px;}
+.span-9 {width:835px;}
+.span-10 {width:930px;}
+.span-11 {width:1025px;}
+.span-12 {width:1120px;}
+.span-13 {width:1215px;}
+.span-14 {width:1310px;}
+.span-15 {width:1405px;}
+.span-16 {width:1500px;}
+.span-17 {width:1595px;}
+.span-18 {width:1690px;}
+.span-19 {width:1785px;}
+.span-20 {width:1880px;margin-right:0;}
+input.span-1, textarea.span-1, input.span-2, textarea.span-2, input.span-3, textarea.span-3, input.span-4, textarea.span-4, input.span-5, textarea.span-5, input.span-6, textarea.span-6, input.span-7, textarea.span-7, input.span-8, textarea.span-8, input.span-9, textarea.span-9, input.span-10, textarea.span-10, input.span-11, textarea.span-11, input.span-12, textarea.span-12, input.span-13, textarea.span-13, input.span-14, textarea.span-14, input.span-15, textarea.span-15, input.span-16, textarea.span-16, input.span-17, textarea.span-17, input.span-18, textarea.span-18, input.span-19, textarea.span-19, input.span-20, textarea.span-20 {border-left-width:1px!important;border-right-width:1px!important;padding-left:5px!important;padding-right:5px!important;}
+.append-1 {padding-right:95px;}
+.append-2 {padding-right:190px;}
+.append-3 {padding-right:285px;}
+.append-4 {padding-right:380px;}
+.append-5 {padding-right:475px;}
+.append-6 {padding-right:570px;}
+.append-7 {padding-right:665px;}
+.append-8 {padding-right:760px;}
+.append-9 {padding-right:855px;}
+.append-10 {padding-right:950px;}
+.append-11 {padding-right:1045px;}
+.append-12 {padding-right:1140px;}
+.append-13 {padding-right:1235px;}
+.append-14 {padding-right:1330px;}
+.append-15 {padding-right:1425px;}
+.append-16 {padding-right:1520px;}
+.append-17 {padding-right:1615px;}
+.append-18 {padding-right:1710px;}
+.append-19 {padding-right:1805px;}
+.prepend-1 {padding-left:95px;}
+.prepend-2 {padding-left:190px;}
+.prepend-3 {padding-left:285px;}
+.prepend-4 {padding-left:380px;}
+.prepend-5 {padding-left:475px;}
+.prepend-6 {padding-left:570px;}
+.prepend-7 {padding-left:665px;}
+.prepend-8 {padding-left:760px;}
+.prepend-9 {padding-left:855px;}
+.prepend-10 {padding-left:950px;}
+.prepend-11 {padding-left:1045px;}
+.prepend-12 {padding-left:1140px;}
+.prepend-13 {padding-left:1235px;}
+.prepend-14 {padding-left:1330px;}
+.prepend-15 {padding-left:1425px;}
+.prepend-16 {padding-left:1520px;}
+.prepend-17 {padding-left:1615px;}
+.prepend-18 {padding-left:1710px;}
+.prepend-19 {padding-left:1805px;}
+.pull-1 {margin-left:-95px;}
+.pull-2 {margin-left:-190px;}
+.pull-3 {margin-left:-285px;}
+.pull-4 {margin-left:-380px;}
+.pull-5 {margin-left:-475px;}
+.pull-6 {margin-left:-570px;}
+.pull-7 {margin-left:-665px;}
+.pull-8 {margin-left:-760px;}
+.pull-9 {margin-left:-855px;}
+.pull-10 {margin-left:-950px;}
+.pull-11 {margin-left:-1045px;}
+.pull-12 {margin-left:-1140px;}
+.pull-13 {margin-left:-1235px;}
+.pull-14 {margin-left:-1330px;}
+.pull-15 {margin-left:-1425px;}
+.pull-16 {margin-left:-1520px;}
+.pull-17 {margin-left:-1615px;}
+.pull-18 {margin-left:-1710px;}
+.pull-19 {margin-left:-1805px;}
+.pull-20 {margin-left:-1900px;}
+.pull-1, .pull-2, .pull-3, .pull-4, .pull-5, .pull-6, .pull-7, .pull-8, .pull-9, .pull-10, .pull-11, .pull-12, .pull-13, .pull-14, .pull-15, .pull-16, .pull-17, .pull-18, .pull-19, .pull-20 {float:left;position:relative;}
+.push-1 {margin:0 -95px 1.5em 95px;}
+.push-2 {margin:0 -190px 1.5em 190px;}
+.push-3 {margin:0 -285px 1.5em 285px;}
+.push-4 {margin:0 -380px 1.5em 380px;}
+.push-5 {margin:0 -475px 1.5em 475px;}
+.push-6 {margin:0 -570px 1.5em 570px;}
+.push-7 {margin:0 -665px 1.5em 665px;}
+.push-8 {margin:0 -760px 1.5em 760px;}
+.push-9 {margin:0 -855px 1.5em 855px;}
+.push-10 {margin:0 -950px 1.5em 950px;}
+.push-11 {margin:0 -1045px 1.5em 1045px;}
+.push-12 {margin:0 -1140px 1.5em 1140px;}
+.push-13 {margin:0 -1235px 1.5em 1235px;}
+.push-14 {margin:0 -1330px 1.5em 1330px;}
+.push-15 {margin:0 -1425px 1.5em 1425px;}
+.push-16 {margin:0 -1520px 1.5em 1520px;}
+.push-17 {margin:0 -1615px 1.5em 1615px;}
+.push-18 {margin:0 -1710px 1.5em 1710px;}
+.push-19 {margin:0 -1805px 1.5em 1805px;}
+.push-20 {margin:0 -1900px 1.5em 1900px;}
+.push-1, .push-2, .push-3, .push-4, .push-5, .push-6, .push-7, .push-8, .push-9, .push-10, .push-11, .push-12, .push-13, .push-14, .push-15, .push-16, .push-17, .push-18, .push-19, .push-20 {float:right;position:relative;}
+.clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
+.clearfix, .container {display:block;}
+.clear {clear:both;}
+
+/*------------------------------------------------------------------------------
+  HTML ELEMENTS
+------------------------------------------------------------------------------*/
+body {
+	color: #FFF;
+	background: #0a0a0a;
+	font-family: Helvetica;
+}
+h1 {
+	font-size: 40px;
+	font-weight: bold;
+	border-bottom: 2px solid #333333;
+	margin-bottom: 20px;
+}
+p {
+	font-size: 25px;
+	font-weight: bold;
+}
+ol li {
+	list-style-type: none;
+}
+em {
+	font-style: italic;
+}
+
+/*------------------------------------------------------------------------------
+  STRUCTURE
+------------------------------------------------------------------------------*/
+.wrap {
+	padding-top: 20px;
+	width: 1920px;
+	height: 1060px;
+	margin: 0 auto;
+}
+
+/*------------------------------------------------------------------------------
+  BOX
+------------------------------------------------------------------------------*/
+.box {
+	height: 170px;
+	border-top: 1px solid #bebebe;
+	-webkit-border-radius: 5px;
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.02, #363636),
+	    color-stop(0.76, #7c7c7c)
+	);
+	padding-top: 30px;
+	margin-bottom: 25px;
+}
+.priority {
+	border-color: #ff8580;
+	height: 125px;
+	padding-top: 25px;
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.02, #a30600),
+	    color-stop(0.76, #ff0a00)
+	);
+}
+.priority-bugs {
+	background: url(/_media/icon_flame.png) 30px 50% no-repeat;
+}
+.text-2 {
+	display: block;
+	text-align: center;
+	color: #FFF;
+	font-size: 96px;
+	font-weight: bold;
+	text-shadow: 0 3px 3px rgba(0,0,0,.5);
+	margin-top: -30px;
+}
+.text-3 {
+	display: block;
+	margin-top: -20px;
+	text-align: center;
+	color: #d7d7d7;
+	font-size: 36px;
+	font-weight: bold;
+}
+
+/*------------------------------------------------------------------------------
+  BUGLIST
+------------------------------------------------------------------------------*/
+.bug-list li {
+	font-weight: bold;
+	border-bottom: 1px solid #333333;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+.bug-list li strong,
+.bug-count {
+	color: #ff3300;
+	display: block;
+}
+.bug-list .gravatar {
+	float: left;
+	margin-right: 20px;
+}
+
+.large {
+	font-size: 30px;
+}
+.small {
+	font-size: 28px;
+}
+
+/*------------------------------------------------------------------------------
+  LINECHART
+------------------------------------------------------------------------------*/
+.linechart-wrap {
+	overflow: hidden;
+}
+.linechart {
+	margin-left: -40px;
+}
+
+/*------------------------------------------------------------------------------
+  BARCHART
+------------------------------------------------------------------------------*/
+.barchart-wrap h1 {
+	margin-bottom: 90px;
+}
+.barchart {
+	height: 248px;
+	margin-top: 50px;
+}
+.barchart li {
+	position: relative;
+	float: left;
+	width: 138px;
+	margin: 0 20px 0 0;
+	height: 248px;
+	list-style-type: none;
+}
+.barchart li a {
+	display: block;
+	height: 248px;
+	text-decoration: none;
+	color: #FFF;
+	overflow: visible;
+}
+.barchart li .label {
+	display: block;
+	position: absolute;
+	bottom: -50px;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-weight: bold;
+	color: #FFF;
+	text-transform: capitalize;
+}
+.barchart li a .count {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 20%;
+	width: 100%;
+	overflow: hidden;
+	-webkit-transition: height 1.5s ease;
+}
+.number {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 48px;
+	font-weight: bold;
+	color: #FFF;
+	background: #0a0a0a;
+}
+.barchart li:last-child {
+	margin-right: 0;
+}
+.barchart li:nth-child(1) .count {
+	background: #ff3300;
+}
+.barchart li:nth-child(2) .count {
+	background: #ff0a7a;
+}
+.barchart li:nth-child(3) .count {
+	background: #ff0acc;
+}
+.barchart li:nth-child(4) .count {
+	background: #ad0acc;
+}
+.barchart li:nth-child(5) .count {
+	background: #5c0acc;
+}
+.barchart li:nth-child(6) .count {
+	background: #335ccc;
+}
+.barchart li:nth-child(7) .count {
+	background: #3385a3;
+}
+.barchart li:nth-child(8) .count {
+	background: #33d67a;
+}
+.barchart li:nth-child(9) .count {
+	background: #33d600;
+}
+.barchart li:nth-child(10) .count {
+	background: #d6d600;
+}
+.barchart li:nth-child(11) .count {
+	background: #ffad00;
+}
+.barchart li:nth-child(12) .count {
+	background: #ff7404;
+}
+
+/*------------------------------------------------------------------------------
+  MISC
+------------------------------------------------------------------------------*/
+.closer-image,
+.opener-image,
+.gravatar {
+	width: 75px;
+	height: 75px;
+	display: block;
+	font-size: 50px;
+	font-weight: bold;
+	color: #333;
+	text-align: center;
+	background-image: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0.02, #363636),
+	    color-stop(0.76, #7c7c7c)
+	);
+	color: #0a0a0a;
+	font-weight: bold;
+	text-shadow: 0 1px 1px rgba(255,255,255,.4);
+}
+.timeout-wrap {
+	height: 6px;
+	padding-top: 1px;
+	width: 100%;
+	margin-top: 80px;
+	border: 1px solid #BABABA;
+	-webkit-border-radius: 3px;
+}
+.timeout-bar {
+	width: 100px;
+	position: absolute;
+	left: 0;
+	height: 5px;
+	background: #FFF;
+	-webkit-border-radius: 3px;
+	-webkit-transition: left 30s linear;
+}
+
+.timeout-bar.animate {
+	left: 1781px;
+}
+.light {
+	font-weight: normal;
+}
+.separator {
+	border-top: 1px solid #333;
+	margin: 10px 0 15px 0;
+	padding-top: 5px;
+}
+.no-margin {
+	margin: 0;
+}

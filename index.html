@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Dashboard</title>
+	<link rel="stylesheet" href="/_css/master.css" />
+	<script src="/_js/jquery.js"></script>
+	<script src="/_js/rgraph.js"></script>
+	<script src="/_js/master.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="container">	
+			
+			<div class="span-20">
+				
+				<div class="span-9">
+					<div class="span-9">
+						<h1>Average age of bugs (30 days)</h1>
+					</div>
+					<div class="span-9">
+						<div class="span-9 linechart-wrap">
+							<canvas id="days-open" class="linechart" height="450" width="910"></canvas>
+						</div>
+					</div>
+				</div>
+
+				<div class="span-3">
+					<h1>Today&rsquo;s Avg</h1>
+					<div class="box">
+						<span class="text-2 average-days">0</span>
+						<span class="text-3">Days</span>
+					</div>
+					<div class="priority-wrap">
+						<h1>Priority Bugs</h1>
+						<div class="box alert no-margin priority">
+							<span class="text-2 priority-bugs">0</span>
+						</div>
+					</div>
+				</div>
+				
+				<div class="span-7 prepend-1 last">
+					<div class="span-3">
+						<h1>Oldest bugs</h1>
+						<ol class="bug-list">
+							<li class="large">
+								<div class="gravatar owner">?</div>
+								#<span class="bug-id"></span>
+								<strong class="bug-age small">0 Days</strong>
+							</li>
+							<li class="large">
+								<div class="gravatar owner">?</div>
+								#<span class="bug-id"></span>
+								<strong class="bug-age small">0 Days</strong>
+							</li>
+							<li class="large">
+								<div class="gravatar owner">?</div>
+								#<span class="bug-id"></span>
+								<strong class="bug-age small">0 Days</strong>
+							</li>
+							<li class="large">
+								<div class="gravatar owner">?</div>
+								#<span class="bug-id"></span>
+								<strong class="bug-age small">0 Days</strong>
+							</li>
+						</ol>
+					</div>
+					<div class="span-4 last">
+						
+						<h1>Top closer</h1>
+						<div class="span-4 last bot-margin">
+							<div class="span-1">
+								<div class="closer-image">?</div>
+							</div>
+							<div class="span-3 last">
+								<p class="border">
+									<span class="closer-name large">Up for grabs</span>
+									<br /><span class="bug-count closer-count small">0 bugs</span>
+								</p>
+							</div>
+						</div>
+						
+						<h1>Top opener</h1>
+						<div class="span-4 last">
+							<div class="span-1">
+								<div class="opener-image">?</div>
+							</div>
+							<div class="span-3 last">
+								<p>
+									<span class="opener-name large">Up for grabs</span>
+									<br /><span class="bug-count opener-count small">0 bugs</span>
+								</p>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			
+			<div class="span-20">
+				<h1>Bugs assigned</h1>
+			</div>
+			
+			<div class="span-20">
+				<ul class="barchart">
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+					<li>
+						<a href="#">
+							<span class="label large"></span>
+							<span class="count "><span class="number number-"></span></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="span-20 timeout-wrap"><div class="timeout-bar"></div></div>
+			
+		</div>		
+	</div>
+
+</body>
+</html>
