@@ -17,10 +17,10 @@ switch ($request[0]) {
 		}
 		else
 		{
-			Core::response();
+			Http::response(404);
 		}
 		break;
 	default:
-		Core::response();
+		Http::response(404);
 }
 ?>

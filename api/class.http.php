@@ -2,32 +2,33 @@
 /**
 * Core
 */
-class Core Extends Config
+class Http Extends Core
 {
-	public function response()
+	public function response($http_code = 200)
 	{
-		
-		foreach ($this as $key => $value)
-		{
-			if ($this->$key)
-			{
-				$body = $this->$key;
-				$http_code = 200;
-				break;
-			}
-			else
-			{
-				$http_code = 404;
-			}
-			
-		}
-		
 		$headers = array();
 		
 		$codes = array(
 			200 => 'OK',
 			404 => 'Not Found'
 		);
+		
+		if ($http_code == 200)
+		{
+			foreach ($this as $key => $value)
+			{
+				if ($this->$key)
+				{
+					$body = $this->$key;
+					$http_code = 200;
+					break;
+				}
+				else
+				{
+					$http_code = 404;
+				}
+			}
+		}
 		
 		$headers[] = 'HTTP/1.1 ' . $http_code . ' ' . $codes[$http_code];
 		
@@ -41,7 +42,7 @@ class Core Extends Config
 				$body = (isset($body)) ? json_encode($body) : '';
 				break;
 			case 404:
-				$body = '<h1>Not Found</h1>';
+				$body = '<h1>404 - Not Found</h1>';
 				break;
 		}
 		
@@ -52,22 +53,6 @@ class Core Extends Config
 		print ($body) ? $body : '';
 		exit;
 	}
-	
-	public function validate_request($class, $request)
-	{
-		$methods = get_class_methods($class);
 
-		if (in_array($request[1], $methods))
-		{
-			$retval = TRUE;
-		}
-		else
-		{
-			$retval = FALSE;
-		}
-		
-		return $retval;
-		
-	}
 }
 

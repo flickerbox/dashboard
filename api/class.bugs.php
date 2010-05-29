@@ -1,5 +1,5 @@
 <?php
-class Bugs Extends Core
+class Bugs Extends Http
 {
 	public $the_closer;
 	public $the_opener;
@@ -15,7 +15,7 @@ class Bugs Extends Core
 
 	public function __construct () 
 	{
-		$core = Config::getInstance();
+		$core = Core::getInstance();
 		
 		$this->config       = $core->mantis->config;
 		$this->mantis_db    = $core->mantis->db;

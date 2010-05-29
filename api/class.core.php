@@ -1,5 +1,5 @@
 <?php
-class Config
+class Core
 {
 	private static $instance;
 	
@@ -28,6 +28,24 @@ class Config
 			self::$instance = new $object;
 		}
 		return self::$instance;
+	}
+	
+	
+	public static function validate_request($class, $request)
+	{
+		$methods = get_class_methods($class);
+
+		if (in_array($request[1], $methods))
+		{
+			$retval = TRUE;
+		}
+		else
+		{
+			$retval = FALSE;
+		}
+		
+		return $retval;
+		
 	}
 	
 }
