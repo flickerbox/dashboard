@@ -198,12 +198,20 @@ em {
 	height: 170px;
 	border-top: 1px solid #bebebe;
 	-webkit-border-radius: 5px;
-	background-image: -webkit-gradient(
+	-moz-border-radius: 5px;
+	background-image: 
+	-webkit-gradient(
 	    linear,
 	    left bottom,
 	    left top,
 	    color-stop(0.02, #363636),
 	    color-stop(0.76, #7c7c7c)
+	);
+	background-image: 
+	-moz-linear-gradient(
+	    center bottom,
+	    #363636 2%,
+	    #7c7c7c 76%
 	);
 	padding-top: 30px;
 	margin-bottom: 25px;
@@ -219,9 +227,15 @@ em {
 	    color-stop(0.02, #a30600),
 	    color-stop(0.76, #ff0a00)
 	);
+	background-image: 
+	-moz-linear-gradient(
+	    center bottom,
+	    #a30600 2%,
+	    #ff0a00 76%
+	);
 }
 .priority-bugs {
-	background: url(/_media/icon_flame.png) 30px 50% no-repeat;
+	background: url(../_media/icon_flame.png) 30px 50% no-repeat;
 }
 .text-2 {
 	display: block;
@@ -323,6 +337,7 @@ em {
 	width: 100%;
 	overflow: hidden;
 	-webkit-transition: height 1.5s ease;
+	-moz-transition: height 1.5s ease;
 }
 .number {
 	display: block;
@@ -398,6 +413,12 @@ em {
 	    color-stop(0.02, #363636),
 	    color-stop(0.76, #7c7c7c)
 	);
+	background-image: 
+	-moz-linear-gradient(
+	    center bottom,
+	    #363636 2%,
+	    #7c7c7c 76%
+	);
 	color: #0a0a0a;
 	font-weight: bold;
 	text-shadow: 0 1px 1px rgba(255,255,255,.4);
@@ -409,6 +430,7 @@ em {
 	margin-top: 80px;
 	border: 1px solid #BABABA;
 	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
 }
 .timeout-bar {
 	width: 100px;
@@ -418,6 +440,8 @@ em {
 	background: #FFF;
 	-webkit-border-radius: 3px;
 	-webkit-transition: left 30s linear;
+	-moz-border-radius: 3px;
+	-moz-transition: left 30s linear;
 }
 
 .timeout-bar.animate {
