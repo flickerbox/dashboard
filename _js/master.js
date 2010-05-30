@@ -10,6 +10,54 @@ Core = {
 };
 
 Core.Bugs = {
+	lineChart: function (){
+		// get the canvas element using the DOM
+		var canvas = document.getElementById('days-open');
+		var ctx = canvas.getContext('2d');
+		var points = [35,33,32,33,34,29,31,31,34,34,37,39,40,40,37,38,37,34,34,32,30,32,32,36,37,36,34,34,35,35];
+		var width = 28.79;
+		
+		var height = 450;
+		
+		var total = 0;
+		for (var i=0; i < points.length; i++) {
+			total += points[i];
+		};
+		
+		var percent = [];
+		for (var i=0; i < points.length; i++) {
+			percent[i] = points[i] / total;
+			percent[i] = percent[i] * 100
+		};
+		
+		var max = Math.max.apply(Math, percent);
+		
+		var relative_percent = [];
+		for (var i=0; i < percent.length; i++) {
+			relative_percent[i] =  percent[i] / max;
+			relative_percent[i] = Math.round(relative_percent[i] * height)
+			relative_percent[i] = height - relative_percent[i];
+		};
+				
+		console.log(relative_percent);
+		
+		// Filled triangle
+		ctx.beginPath();  
+
+		ctx.moveTo(0,relative_percent[0]);
+		
+		for (var i=1; i < relative_percent.length; i++) {
+			ctx.lineTo(width*i,relative_percent[i]);
+			
+		};
+		
+		ctx.lineTo(835,height);  
+		ctx.lineTo(0,height); 
+		ctx.fillStyle = "#1a9be5"; 
+		ctx.fill();
+			
+
+	},
 	assigned: function() {
 		var template = '<li style="width: %WIDTH%px">\
 			<a href="#">\
@@ -70,25 +118,25 @@ Core.Bugs = {
 			$(".average-days").html(data.days);
 		});
 	},
-	historicalAverage: function() {
-		$.getJSON("/api/bugs/historical_average",
-		function(data) {
-			var days_open = new RGraph.Line('days-open', data);
-			days_open.Set('chart.gutter', 30);
-			days_open.Set('chart.hmargin', 10);
-			days_open.Set('chart.linewidth', 7);
-
-			days_open.Set('chart.colors',  ['#b1e4ff']);
-			days_open.Set('chart.text.color', '#0a0a0a');
-			days_open.Set('chart.xticks', null);
-			days_open.Set('chart.background.grid', false);
-			days_open.Set('chart.axis.color', '#0a0a0a');
-			days_open.Set('chart.filled', true);
-			days_open.Set('chart.fillstyle', '#1a9be5');
-
-			days_open.Draw();
-		});
-	},
+	// historicalAverage: function() {
+	// 	$.getJSON("/api/bugs/historical_average",
+	// 	function(data) {
+	// 		var days_open = new RGraph.Line('days-open', data);
+	// 		days_open.Set('chart.gutter', 30);
+	// 		days_open.Set('chart.hmargin', 10);
+	// 		days_open.Set('chart.linewidth', 7);
+	// 
+	// 		days_open.Set('chart.colors',  ['#b1e4ff']);
+	// 		days_open.Set('chart.text.color', '#0a0a0a');
+	// 		days_open.Set('chart.xticks', null);
+	// 		days_open.Set('chart.background.grid', false);
+	// 		days_open.Set('chart.axis.color', '#0a0a0a');
+	// 		days_open.Set('chart.filled', true);
+	// 		days_open.Set('chart.fillstyle', '#1a9be5');
+	// 
+	// 		days_open.Draw();
+	// 	});
+	// },
 	oldest: function() {
 		$.getJSON("/api/bugs/oldest",
 		function(data) {
