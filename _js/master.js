@@ -155,5 +155,5 @@ function theExecutor () {
 
 $(document).ready(function() {
 		theExecutor();
-		window.setInterval('theExecutor()', 10000);
+		window.setInterval('theExecutor()', 30000);
 });

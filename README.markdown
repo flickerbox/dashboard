@@ -35,4 +35,4 @@ About
 
 Dashboard is separated into a PHP data layer with a JSON API interface and a JavaScript front end. This separation makes it easy for the data to be kept up-to-date as the JavaScript will make XMLHttpRequests every 30 seconds and update the data without requiring a page refresh. 
 
-Dashboard uses the excellent jQuery JavaScript library and the rGraph canvas graphing library.
+Dashboard uses the excellent jQuery JavaScript library.
