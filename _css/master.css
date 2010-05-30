@@ -290,7 +290,6 @@ em {
 .barchart li {
 	position: relative;
 	float: left;
-	width: 138px;
 	margin: 0 20px 0 0;
 	height: 248px;
 	list-style-type: none;

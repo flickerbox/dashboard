@@ -11,8 +11,30 @@ Core = {
 
 Core.Bugs = {
 	assigned: function() {
+		var template = '<li style="width: %WIDTH%px">\
+			<a href="#">\
+				<span class="label large">%NAME%</span>\
+				<span class="count %NAME%"><span class="number number-%NAME%"></span></span>\
+			</a>\
+		</li>';
 		$.getJSON("/api/bugs/assigned",
 		function(data) {
+			// Create the list items if there are none
+			if ($('.barchart').children().length == 0) {
+				
+				var barCount = 0;
+				$.each(data.relative_percent, function(i,item) {
+					barCount++;
+				});
+				
+				var totalWidth     = $('.barchart').width();
+				var spaceAvailable = totalWidth - (20 * (barCount - 1));
+				var barWidth       = Math.floor(spaceAvailable / barCount);
+				
+				$.each(data.relative_percent, function(i,item) {
+					$('.barchart').append(template.replace(/%WIDTH%/g,barWidth).replace(/%NAME%/g,i));
+				});
+			};
 			$.each(data.relative_percent, function(i,item) {
 				item = item + 20;
 				$('.barchart .' + i).css({"height": item + "%"});
