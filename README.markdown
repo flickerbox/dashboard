@@ -1,7 +1,7 @@
 Dashboard
 =========
 
-![Dashboard Sreenshot](http://blog.flickerbox.com/wp-content/uploads/flickerbox_dashboard.png)
+![Dashboard Screenshot](http://blog.flickerbox.com/wp-content/uploads/flickerbox_dashboard.png)
 
 By Ben Ubois. Design by Todd J. Collins.
 
