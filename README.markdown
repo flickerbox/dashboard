@@ -1,6 +1,8 @@
 Dashboard
 =========
 
+![Dashboard Sreenshot](http://blog.flickerbox.com/wp-content/uploads/flickerbox_dashboard.png)
+
 By Ben Ubois. Design by Todd J. Collins.
 
 Dashboard is a view for the [Mantis Bug Tracker](http://www.mantisbt.org/). It features:
