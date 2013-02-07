@@ -19,7 +19,9 @@ Core.Bugs = {
 			
 			var width = totalWidth / (points.length - 1);
 			var height = $('#days-open').height();
-
+			
+			ctx.clearRect(0, 0, totalWidth, height + 1);
+			
 			var total = 0;
 			for (var i=0; i < points.length; i++) {
 				total += points[i];
@@ -155,5 +157,5 @@ function theExecutor () {
 
 $(document).ready(function() {
 		theExecutor();
-		window.setInterval('theExecutor()', 30000);
+		// window.setInterval('theExecutor()', 3000);
 });
