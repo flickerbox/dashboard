@@ -171,7 +171,7 @@ class Bugs Extends Http
         return $this;
 	}
 	
-	function historical_average($days = 30)
+	function historical_average($days = 90)
 	{
 		$retval = array();
 		
@@ -189,7 +189,7 @@ class Bugs Extends Http
 			$retval[] = (int) $result['average'];
 		}
 		
-		$retval = array_pad($retval, 30, 0);
+		$retval = array_pad($retval, 90, 0);
 		
 		$retval = array_reverse($retval);
 		

@@ -357,40 +357,46 @@ em {
 	margin-right: 0;
 }
 .barchart li:nth-child(1) .count {
-	background: #ff3300;
+	background: #33D67A;
 }
 .barchart li:nth-child(2) .count {
-	background: #ff0a7a;
+	background: #99C23D;
 }
 .barchart li:nth-child(3) .count {
-	background: #ff0acc;
+	background: #FFAD00;
 }
 .barchart li:nth-child(4) .count {
-	background: #ad0acc;
+	background: #FF9102;
 }
 .barchart li:nth-child(5) .count {
-	background: #5c0acc;
+	background: #FF7404;
 }
 .barchart li:nth-child(6) .count {
-	background: #335ccc;
+	background: #FF5E03;
 }
 .barchart li:nth-child(7) .count {
-	background: #3385a3;
+	background: #FF4901;
 }
 .barchart li:nth-child(8) .count {
-	background: #33d67a;
+	background: #FF3300;
 }
 .barchart li:nth-child(9) .count {
-	background: #33d600;
+	background: #FF1F66;
 }
 .barchart li:nth-child(10) .count {
-	background: #d6d600;
+	background: #FF0ACC;
 }
 .barchart li:nth-child(11) .count {
-	background: #ffad00;
+	background: #AE0ACC;
 }
 .barchart li:nth-child(12) .count {
-	background: #ff7404;
+	background: #5C0ACC;
+}
+.barchart li:nth-child(13) .count {
+	background: #4833CC;
+}
+.barchart li:nth-child(14) .count {
+	background: #335CCC;
 }
 
 /*------------------------------------------------------------------------------
