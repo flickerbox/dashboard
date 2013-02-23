@@ -8,6 +8,9 @@ class Core
 
 	public function __construct () 
 	{
+		$this->dashboard = new stdClass;
+		$this->mantis = new stdClass;
+		
 		$dashboard_db = $GLOBALS['config']['dashboard']['db'];
 		$this->dashboard->db = new PDO($dashboard_db[0],$dashboard_db[1],$dashboard_db[2]);
 		

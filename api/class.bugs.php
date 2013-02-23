@@ -8,6 +8,7 @@ class Bugs Extends Http
 	public $historical_average;
 	public $assigned;
 	public $priority;
+	public $open_close;
 	
 	protected $config;
 	protected $mantis_db;
@@ -21,7 +22,83 @@ class Bugs Extends Http
 		$this->mantis_db    = $core->mantis->db;
 		$this->dashboard_db = $core->dashboard->db;
 	}
+  
+	function open_close($days = 30)
+	{
+		$dates = array();
+		$results = array();
+		for($i = 0; $i < $days; $i++) 
+		{
+			$dates[] = date("Ymd", strtotime('-'. $i .' days'));
+		}
+		$open = $this->open_counts($days);
+		$closed = $this->closed_counts($days);
+		
+		foreach ($dates as $index => $date) 
+		{
+			$results[$index] = array('open' => 0, 'closed' => 0);
+			if (array_key_exists($date, $open)) 
+			{
+				$results[$index]['open'] = intval($open[$date]);
+			}
+			if (array_key_exists($date, $closed)) 
+			{
+				$results[$index]['closed'] = intval($closed[$date]);
+			}
+		}
+		
+		$results = array_reverse($results);
+		
+		$this->open_close = $results;
+		
+		return $this;
+	}
 
+	function open_counts($days)
+	{		
+		$query = "SELECT count(*) as count,
+                  DATE_FORMAT(FROM_UNIXTIME(date_modified),'%Y%m%d') as `day`
+                  FROM mantis_bug_history_table
+                  WHERE mantis_bug_history_table.type = 1
+                  GROUP BY `day`
+                  ORDER BY `day` DESC
+                  LIMIT :days";
+				  
+		$core = Core::getInstance();
+		$query = $core->mantis->db->prepare($query);
+		$query->bindParam(':days', $days, PDO::PARAM_INT);
+		$query->execute();
+		$results = $query->fetchAll(PDO::FETCH_ASSOC);
+		return $this->format_days($results);
+	}
+
+	function closed_counts($days)
+	{
+		$query = "SELECT count(*) as count,
+		          DATE_FORMAT(FROM_UNIXTIME(date_modified),'%Y%m%d') as `day`
+		          FROM mantis_bug_history_table
+		          WHERE mantis_bug_history_table.new_value = 90
+		          GROUP BY `day`
+		          ORDER BY `day` DESC
+		          LIMIT :days";
+				  
+  		$core = Core::getInstance();
+  		$query = $core->mantis->db->prepare($query);
+		$query->bindParam(':days', $days, PDO::PARAM_INT);
+		$query->execute();
+		$results = $query->fetchAll(PDO::FETCH_ASSOC);
+		return $this->format_days($results);
+	}
+	
+	function format_days($results)
+	{
+		$formatted = array();
+		foreach ($results as $result) {
+			$formatted[$result['day']] = $result['count'];
+		}
+		return $formatted;
+	}
+	
 	function the_closer()
 	{
 		$exclude = $this->config['excluded_projects'];
@@ -33,7 +110,7 @@ class Bugs Extends Http
 				  INNER JOIN mantis_user_table 
 				  ON mantis_bug_history_table.user_id = mantis_user_table.id
 				  INNER JOIN mantis_bug_table 
-  				  ON mantis_bug_history_table.bug_id = mantis_bug_table.id
+				  ON mantis_bug_history_table.bug_id = mantis_bug_table.id
 				  WHERE date_modified >= '$date_start' AND date_modified <= '$date_end'
 				  AND mantis_bug_history_table.new_value = 90
 				  AND mantis_bug_table.project_id NOT IN ($exclude) 
@@ -248,5 +325,3 @@ class Bugs Extends Http
         return $this;
 	}
 }
-
-?>
