@@ -1,8 +1,8 @@
 var graph = {
 	strokeOpen: '#FFF',
-	fillOpen: '#335CCC',
+	fillOpen: '#333',
 	strokeClosed: '#ff5800',
-	fillClosed: '#ff5800',
+	fillClosed: '#732800',
 	context: null,
 	width: null,
 	height: null,
