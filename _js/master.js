@@ -1,5 +1,5 @@
 var graph = {
-	strokeOpen: '#FFF',
+	strokeOpen: '#999',
 	fillOpen: '#333',
 	strokeClosed: '#ff5800',
 	fillClosed: '#732800',
