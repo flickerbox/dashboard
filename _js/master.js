@@ -1,8 +1,8 @@
 var graph = {
-	strokeOpen: '#F30',
-	strokeClosed: '#45b63f',
-	fillOpen: '#52d94b',
-	fillClosed: '#c15f4f',
+	strokeOpen: '#FFF',
+	fillOpen: '#335CCC',
+	strokeClosed: '#ff5800',
+	fillClosed: '#ff5800',
 	context: null,
 	width: null,
 	height: null,
@@ -75,7 +75,7 @@ var graph = {
 			graph.context.lineTo(xWidth*i, data[i]);
 		};
 		graph.context.strokeStyle = color; 
-		graph.context.lineWidth = 4; 
+		graph.context.lineWidth = 8; 
 		graph.context.stroke();
 	},
 	sumData: function (data) {
