@@ -11,6 +11,8 @@ var graph = {
 		graph.context = canvas.getContext('2d');
 		graph.width = canvas.width;
 		graph.height = canvas.height;
+		
+		graph.context.clearRect(0, 0, graph.width, graph.height + 1);
 				
 		var data = graph.sumData(counts);
 		var tetragons = graph.buildTetragons(data);
