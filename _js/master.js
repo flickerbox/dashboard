@@ -1,8 +1,8 @@
 var graph = {
 	strokeOpen: '#999',
-	fillOpen: '#333',
 	strokeClosed: '#ff5800',
-	fillClosed: '#732800',
+	fillOpen: '#33D67A',
+	fillClosed: '#FF3300',
 	context: null,
 	width: null,
 	height: null,
@@ -15,35 +15,40 @@ var graph = {
 		graph.context.clearRect(0, 0, graph.width, graph.height + 1);
 				
 		var data = graph.sumData(counts);
+		graph.xWidth = graph.width / (data.open.length - 1);
+		
 		var tetragons = graph.buildTetragons(data);
 				
 		tetragons.map(graph.drawTetragon);
-		graph.drawLine(data.open, graph.strokeOpen);
-		graph.drawLine(data.closed, graph.strokeClosed);
+		// graph.drawLine(data.open, graph.strokeOpen);
+		// graph.drawLine(data.closed, graph.strokeClosed);
+
+		graph.drawPoints(data.open, '#ffb19e');
+		graph.drawPoints(data.closed, '#b7f8d3');
 	},
 	drawTetragon: function(tetragon) {
 		graph.context.beginPath();  
 		graph.context.lineWidth = 0; 
 		graph.context.fillStyle = tetragon.color; 
-				
+		
+		// Adding 1 to b and c helps fill in gaps
 		graph.context.moveTo(tetragon.a[0], tetragon.a[1]);
-		graph.context.lineTo(tetragon.b[0], tetragon.b[1]);
-		graph.context.lineTo(tetragon.c[0], tetragon.c[1]);
+		graph.context.lineTo(tetragon.b[0] + 1, tetragon.b[1]);
+		graph.context.lineTo(tetragon.c[0] + 1, tetragon.c[1]);
 		graph.context.lineTo(tetragon.d[0], tetragon.d[1]);
 					
 		graph.context.closePath();
 		graph.context.fill();
 	},
 	buildTetragons: function(data) {
-		var xWidth = graph.width / (data.open.length - 1);
 		var tetragons = []
 		var color = graph.fillClosed; 
 		var color1 = graph.fillClosed; 
 		var color2 = graph.fillClosed; 
 				
 		for (var i=0; i < data.open.length; i++) {
-			var x1 = xWidth * i;
-			var x2 = xWidth * (i + 1);
+			var x1 = graph.xWidth * i;
+			var x2 = graph.xWidth * (i + 1);
 					
 			var y1_open = data.open[i];
 			var y2_open = data.open[i + 1];
@@ -68,15 +73,22 @@ var graph = {
 		return tetragons;
 	},
 	drawLine: function (data, color) {
-		var xWidth = graph.width / (data.length - 1);
 		graph.context.beginPath();  
 		graph.context.moveTo(0,data[0]);
 		for (var i=1; i < data.length; i++) {
-			graph.context.lineTo(xWidth*i, data[i]);
+			graph.context.lineTo(graph.xWidth*i, data[i]);
 		};
 		graph.context.strokeStyle = color; 
 		graph.context.lineWidth = 8; 
 		graph.context.stroke();
+	},
+	drawPoints: function (data, color) {
+		graph.context.fillStyle = color;
+		for(var i = 0; i < data.length; i ++) { 
+			graph.context.beginPath();
+			graph.context.arc(graph.xWidth*i, data[i], 4, 0, Math.PI * 2, true);
+			graph.context.fill();
+		}		
 	},
 	sumData: function (data) {
 		var open = [];
@@ -104,7 +116,7 @@ var graph = {
 		return data;
 	},
 	linesCross: function(x, x1, x2) {
-		return (x >= x1 && x < x2);
+		return (x > x1 && x < x2);
 	},
 	intersectionFromPoints: function(x1, x2, y1_open, y2_open, y1_closed, y2_closed) {
 		var openM = graph.slope(x1, x2, y1_open, y2_open);
