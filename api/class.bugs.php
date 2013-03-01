@@ -9,6 +9,7 @@ class Bugs Extends Http
 	public $assigned;
 	public $priority;
 	public $open_close;
+	public $open_close_average;
 	
 	protected $config;
 	protected $mantis_db;
@@ -50,6 +51,27 @@ class Bugs Extends Http
 		$results = array_reverse($results);
 		
 		$this->open_close = $results;
+		
+		return $this;
+	}
+	
+	function open_close_average($days = 30)
+	{
+		$open = 0;
+		$closed = 0;
+
+		$this->open_close($days);
+		$counts = $this->open_close;
+		$this->open_close = NULL;
+		foreach ($counts as $count)
+		{
+			$open += $count['open'];
+			$closed += $count['closed'];
+		}
+		$open = $open / $days;
+		$closed = $closed / $days;
+
+		$this->open_close_average = array('open' => round($open), 'closed' => round($closed));
 		
 		return $this;
 	}

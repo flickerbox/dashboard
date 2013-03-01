@@ -195,7 +195,7 @@ em {
   BOX
 ------------------------------------------------------------------------------*/
 .box {
-	height: 170px;
+	height: 125px;
 	border-top: 1px solid #bebebe;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -213,13 +213,13 @@ em {
 	    #363636 2%,
 	    #7c7c7c 76%
 	);
-	padding-top: 30px;
-	margin-bottom: 25px;
+	padding-top: 22px;
+	margin-bottom: 11px;
 }
 .priority {
 	border-color: #ff8580;
-	height: 125px;
-	padding-top: 25px;
+	height: 96px;
+	padding-top: 41px;
 	background-image: -webkit-gradient(
 	    linear,
 	    left bottom,
@@ -242,6 +242,7 @@ em {
 	text-align: center;
 	color: #FFF;
 	font-size: 96px;
+	line-height: 1.2;
 	font-weight: bold;
 	text-shadow: 0 3px 3px rgba(0,0,0,.5);
 	margin-top: -30px;

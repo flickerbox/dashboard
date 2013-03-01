@@ -154,59 +154,6 @@ Core = {
 };
 
 Core.Bugs = {
-	// historicalAverage: function() {
-	// 	$.getJSON("/api/bugs/historical_average",
-	// 	function(points) {
-	// 		var canvas = document.getElementById('days-open');
-	// 		var ctx = canvas.getContext('2d');
-	// 		var totalWidth = $('#days-open').width();
-	// 		
-	// 		var width = totalWidth / (points.length - 1);
-	// 		var height = $('#days-open').height();
-	// 		
-	// 		ctx.clearRect(0, 0, totalWidth, height + 1);
-	// 		
-	// 		var total = 0;
-	// 		for (var i=0; i < points.length; i++) {
-	// 			total += points[i];
-	// 		};
-	// 		var percent = [];
-	// 		for (var i=0; i < points.length; i++) {
-	// 			percent[i] = points[i] / total;
-	// 			percent[i] = percent[i] * 100
-	// 		};
-	// 
-	// 		var max = Math.max.apply(Math, percent);
-	// 		var yPosition = [];
-	// 		for (var i=0; i < percent.length; i++) {
-	// 			yPosition[i] =  percent[i] / max;
-	// 			yPosition[i] = Math.round(yPosition[i] * height)
-	// 			yPosition[i] = height - yPosition[i] + 20;
-	// 		};
-	// 
-	// 		// Fill
-	// 		ctx.beginPath();  
-	// 		ctx.moveTo(0,yPosition[0]);
-	// 		for (var i=1; i < yPosition.length; i++) {
-	// 			ctx.lineTo(width*i,yPosition[i]);
-	// 
-	// 		};
-	// 		ctx.lineTo(totalWidth + 1,height);  
-	// 		ctx.lineTo(0,height); 
-	// 		ctx.fillStyle = "#1a9be5"; 
-	// 		ctx.fill();
-	// 
-	// 		// Stroke
-	// 		ctx.beginPath();  
-	// 		ctx.moveTo(0,yPosition[0]);
-	// 		for (var i=1; i < yPosition.length; i++) {
-	// 			ctx.lineTo(width*i,yPosition[i]);
-	// 		};
-	// 		ctx.strokeStyle = "#FFFFFF"; 
-	// 		ctx.lineWidth = 6; 
-	// 		ctx.stroke();
-	// 	});
-	// },
 	differenceGraph: function() {
 		$.getJSON("/api/bugs/open_close", function(counts) {
 			graph.drawGraph(counts);
@@ -266,10 +213,11 @@ Core.Bugs = {
 			}
 		});
 	},
-	average: function() {
-		$.getJSON("/api/bugs/average",
+	openCloseAverage: function() {
+		$.getJSON("/api/bugs/open_close_average",
 		function(data) {
-			$(".average-days").html(data.days);
+			$(".opened-average").html(data.open);
+			$(".closed-average").html(data.closed);
 		});
 	},
 	oldest: function() {
@@ -285,7 +233,6 @@ Core.Bugs = {
 	priority: function() {
 		$.getJSON("/api/bugs/priority",
 		function(data) {
-			
 			if (data > 0) {
 				$(".priority-bugs").html(data);
 				$(".priority-wrap").show("fast");
